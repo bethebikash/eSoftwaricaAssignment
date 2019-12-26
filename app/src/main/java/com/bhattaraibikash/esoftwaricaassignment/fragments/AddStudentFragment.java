@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.bhattaraibikash.esoftwaricaassignment.MainActivity;
 import com.bhattaraibikash.esoftwaricaassignment.R;
 import com.bhattaraibikash.esoftwaricaassignment.models.Student;
 
@@ -100,8 +101,8 @@ public class AddStudentFragment extends Fragment {
 
                 age = Integer.parseInt(ageSt);
 
-                List<Student> studentList = new ArrayList<>();
-                studentList.add(new Student(name,age,address,gender));
+
+                MainActivity.studentList.add(new Student(name,age,address,gender));
 
                 Toast.makeText(getActivity(), "Student added", Toast.LENGTH_SHORT).show();
 
