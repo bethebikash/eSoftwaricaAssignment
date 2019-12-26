@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verify (String username, String password){
-        if((username.equals("admin")) && (password.equals("admin"))){
+        if((username.equals("softwarica")) && (password.equals("coventry"))){
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

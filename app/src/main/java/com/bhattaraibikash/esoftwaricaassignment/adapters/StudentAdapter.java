@@ -57,7 +57,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"hi"+student.getName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"Hello! "+student.getName(),Toast.LENGTH_SHORT).show();
             }
         });
 

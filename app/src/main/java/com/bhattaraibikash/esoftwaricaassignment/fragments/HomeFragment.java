@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
 
 
         if (MainActivity.studentList.isEmpty()) {
+
             MainActivity.studentList.add(new Student("Dipesh Dhakal", 22, "Balaju", "Male"));
             MainActivity.studentList.add(new Student("Jenifer Sharma", 26, "Baneshwor", "Female"));
             StudentAdapter studentAdapter = new StudentAdapter(getContext(), MainActivity.studentList);
