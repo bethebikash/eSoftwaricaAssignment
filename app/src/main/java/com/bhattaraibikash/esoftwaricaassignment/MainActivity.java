@@ -12,9 +12,15 @@ import android.view.MenuItem;
 import com.bhattaraibikash.esoftwaricaassignment.fragments.AboutFragment;
 import com.bhattaraibikash.esoftwaricaassignment.fragments.AddStudentFragment;
 import com.bhattaraibikash.esoftwaricaassignment.fragments.HomeFragment;
+import com.bhattaraibikash.esoftwaricaassignment.models.Student;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static List<Student> studentList = new ArrayList<>();
 
     private BottomNavigationView navigation;
     private ActionBar toolbar;
@@ -30,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         toolbar.setTitle("Home");
+        Fragment fragment = new HomeFragment();
+        loadFragment(fragment);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener

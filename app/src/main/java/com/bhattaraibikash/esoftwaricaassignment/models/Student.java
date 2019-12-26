@@ -1,12 +1,12 @@
 package com.bhattaraibikash.esoftwaricaassignment.models;
 
-public class Students {
+public class Student {
     private String name;
     private int age;
     private String address;
     private String gender;
 
-    public Students(String name, int age, String address, String gender) {
+    public Student(String name, int age, String address, String gender) {
         this.name = name;
         this.age = age;
         this.address = address;

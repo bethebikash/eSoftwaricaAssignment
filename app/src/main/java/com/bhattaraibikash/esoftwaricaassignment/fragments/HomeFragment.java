@@ -2,20 +2,17 @@ package com.bhattaraibikash.esoftwaricaassignment.fragments;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bhattaraibikash.esoftwaricaassignment.MainActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bhattaraibikash.esoftwaricaassignment.R;
 import com.bhattaraibikash.esoftwaricaassignment.adapters.StudentAdapter;
-import com.bhattaraibikash.esoftwaricaassignment.models.Students;
+import com.bhattaraibikash.esoftwaricaassignment.models.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,6 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private RecyclerView rvStudentList;
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -40,6 +36,30 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         rvStudentList = view.findViewById(R.id.rvStudentList);
+
+        List<Student> studentList = new ArrayList<>();
+
+//        studentList.add(new Student("Dipesh Dhakal", 22, "Balaju","Male"));
+//        studentList.add(new Student("Jenifer Sharma", 26, "Baneshwor","Female"));
+
+
+        if (studentList.isEmpty()) {
+            studentList.add(new Student("Dipesh Dhakal", 22, "Balaju", "Male"));
+            studentList.add(new Student("Jenifer Sharma", 26, "Baneshwor", "Female"));
+            StudentAdapter studentAdapter = new StudentAdapter(getContext(), studentList);
+            rvStudentList.setAdapter(studentAdapter);
+            rvStudentList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        } else {
+
+            StudentAdapter studentAdapter = new StudentAdapter(getContext(), studentList);
+            rvStudentList.setAdapter(studentAdapter);
+            rvStudentList.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
+
+//        StudentAdapter studentAdapter = new StudentAdapter(getContext(), studentList);
+//        rvStudentList.setLayoutManager(new LinearLayoutManager(getContext()));
+//        rvStudentList.setAdapter(studentAdapter);
 
         return view;
     }

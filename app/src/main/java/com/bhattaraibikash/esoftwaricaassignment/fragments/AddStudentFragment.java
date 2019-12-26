@@ -10,14 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.bhattaraibikash.esoftwaricaassignment.R;
-import com.bhattaraibikash.esoftwaricaassignment.models.Students;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import com.bhattaraibikash.esoftwaricaassignment.models.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +29,11 @@ public class AddStudentFragment extends Fragment {
     private Button btnSave;
     private RadioGroup rgGender;
     private RadioButton rbMale, rbFemale, rbOthers;
-    private TextInputEditText etName, etAge, etAddress;
+    private EditText etName, etAge, etAddress;
 
-
-    public static List<Students> studentsList = new ArrayList<>();
     String name, address, gender;
     int age;
+
 
     public AddStudentFragment() {
         // Required empty public constructor
@@ -69,7 +67,6 @@ public class AddStudentFragment extends Fragment {
                 if (checkedId == R.id.rbOthers) {
                     gender = "Others";
                 }
-
             }
         });
 
@@ -103,7 +100,8 @@ public class AddStudentFragment extends Fragment {
 
                 age = Integer.parseInt(ageSt);
 
-                studentsList.add(new Students(name,age,address,gender));
+                List<Student> studentList = new ArrayList<>();
+                studentList.add(new Student(name,age,address,gender));
                 Toast.makeText(getActivity(), "Student added", Toast.LENGTH_SHORT).show();
 
                 etName.setText("");
