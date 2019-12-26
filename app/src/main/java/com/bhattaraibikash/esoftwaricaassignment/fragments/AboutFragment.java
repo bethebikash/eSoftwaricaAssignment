@@ -1,10 +1,15 @@
 package com.bhattaraibikash.esoftwaricaassignment.fragments;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,8 +28,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 public class AboutFragment extends Fragment {
 
-    private MapView mvLocation;
-    private GoogleMap googleMap;
+    WebView webViewFrame;
+    ProgressBar pbar;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -36,56 +41,30 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about, container, false);
+        webViewFrame = (WebView) view.findViewById(R.id.webView);
+        pbar = (ProgressBar) view.findViewById(R.id.progressBar1);
+        webViewFrame.loadUrl("https://softwarica.edu.np/");
 
-        mvLocation = view.findViewById(R.id.mvLocation);
+        // Enable Javascript
+        WebSettings webSettings = webViewFrame.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+//        webViewFrame.setWebViewClient(new WebViewClient());
 
-        mvLocation.onCreate(savedInstanceState);
-        mvLocation.onResume();
-        try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        mvLocation.getMapAsync(new OnMapReadyCallback() {
+        webViewFrame.setWebViewClient(new WebViewClient() {
+
             @Override
-            public void onMapReady(GoogleMap mMap) {
-                googleMap = mMap;
-                googleMap.setMyLocationEnabled(true);
+            public void onPageStarted(WebView view, String url, Bitmap facIcon) {
+                pbar.setVisibility(View.VISIBLE);
+                webViewFrame.setVisibility(View.GONE);
+            }
 
-                //To add marker
-                LatLng sydney = new LatLng(-34, 151);
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Title").snippet("Marker Description"));
-
-                // For zooming functionality
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(12).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                webViewFrame.setVisibility(View.VISIBLE);
+                pbar.setVisibility(View.VISIBLE);
             }
         });
+
         return view;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mvLocation.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mvLocation.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mvLocation.onDestroy();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mvLocation.onLowMemory();
-    }
-
 }
