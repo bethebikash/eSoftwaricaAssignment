@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.bhattaraibikash.esoftwaricaassignment.fragments.AboutFragment;
+import com.bhattaraibikash.esoftwaricaassignment.fragments.AddStudentFragment;
+import com.bhattaraibikash.esoftwaricaassignment.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,12 +41,18 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navHome:
                     toolbar.setTitle("Home");
+                    fragment = new HomeFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navAdd:
                     toolbar.setTitle("Add Student");
+                    fragment = new AddStudentFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navAbout:
                     toolbar.setTitle("About");
+                    fragment = new AboutFragment();
+                    loadFragment(fragment);
                     return true;
             }
             return false;
@@ -52,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void loadFragment(Fragment fragment) {
-        // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameContainer, fragment);
         transaction.addToBackStack(null);
