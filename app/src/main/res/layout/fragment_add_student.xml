@@ -3,22 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".fragments.AddStudentFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:orientation="vertical"
-        android:padding="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
+            android:text="Student Details"
             android:textSize="36sp"
-            android:textStyle="bold"
-            android:text="Student Details" />
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -29,8 +31,8 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,14 +43,13 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAge"
-                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:inputType="number"
+                android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,8 +61,8 @@
                 android:id="@+id/etAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,36 +70,33 @@
             android:id="@+id/rgGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp" >
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:text="Select Gender"
                 android:textSize="20sp"
-                android:textStyle="italic"
-                android:text="Select Gender" />
+                android:textStyle="italic" />
 
             <RadioButton
                 android:id="@+id/rbMale"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                />
+                android:text="Male" />
 
             <RadioButton
                 android:id="@+id/rbFemale"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                />
+                android:text="Female" />
 
             <RadioButton
                 android:id="@+id/rbOthers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Others"
-                />
+                android:text="Others" />
 
         </RadioGroup>
 
@@ -107,9 +105,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:textSize="20sp"
+            android:background="@drawable/button_primary"
             android:text="Save"
-            />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -39,9 +39,6 @@ public class HomeFragment extends Fragment {
 
         List<Student> studentList = new ArrayList<>();
 
-//        studentList.add(new Student("Dipesh Dhakal", 22, "Balaju","Male"));
-//        studentList.add(new Student("Jenifer Sharma", 26, "Baneshwor","Female"));
-
 
         if (studentList.isEmpty()) {
             studentList.add(new Student("Dipesh Dhakal", 22, "Balaju", "Male"));
@@ -56,10 +53,6 @@ public class HomeFragment extends Fragment {
             rvStudentList.setAdapter(studentAdapter);
             rvStudentList.setLayoutManager(new LinearLayoutManager(getContext()));
         }
-
-//        StudentAdapter studentAdapter = new StudentAdapter(getContext(), studentList);
-//        rvStudentList.setLayoutManager(new LinearLayoutManager(getContext()));
-//        rvStudentList.setAdapter(studentAdapter);
 
         return view;
     }

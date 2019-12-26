@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         toolbar.setTitle("Home");
-        Fragment fragment = new HomeFragment();
-        loadFragment(fragment);
+        loadFragment(new HomeFragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener

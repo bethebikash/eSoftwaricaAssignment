@@ -102,16 +102,16 @@ public class AddStudentFragment extends Fragment {
 
                 List<Student> studentList = new ArrayList<>();
                 studentList.add(new Student(name,age,address,gender));
+
                 Toast.makeText(getActivity(), "Student added", Toast.LENGTH_SHORT).show();
 
-                etName.setText("");
                 etAge.setText("");
                 etAddress.setText("");
                 rgGender.clearCheck();
+                etName.setText("");
             }
         });
 
         return view;
     }
-
 }
